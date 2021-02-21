@@ -7,4 +7,4 @@ all of the records for the query (parameters are genus Key and year of observati
 
 __version__="0.0.1"
 
-from records import Records
+from records.records import Records
