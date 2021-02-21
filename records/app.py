@@ -41,4 +41,4 @@ def iris(species=None):
 def gbif(genusKey=5389028, year="2010,2020"):
     "returns a specific gbif query as JSON"
     rec = Records(genusKey=genusKey, year=year)
-    return rec.get_single_record()
+    return rec.get_single_batch()
