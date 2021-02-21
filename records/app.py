@@ -3,6 +3,7 @@
 import json
 import pandas as pd
 from fastapi import FastAPI
+from records.records import Records
 
 # create the app as an instance of the fastAPI class
 app = FastAPI()
@@ -35,3 +36,9 @@ def iris(species=None):
     sdata = data.to_json(orient="index")
     jdata = json.loads(sdata)
     return jdata
+
+@app.get("/gbif")
+def gbif(genusKey=5389028, year="2010,2020"):
+    "returns a specific gbif query as JSON"
+    rec = Records(genusKey=genusKey, year=year)
+    return rec.get_single_record()
